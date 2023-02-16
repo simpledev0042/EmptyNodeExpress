@@ -2,12 +2,16 @@ const { Route, GET, POST, PUT, DELETE, ALL, RouteObject } = require("simple-rout
 const { auth, token } = require("./../middlewares");
 
 const route = Route.create({
-  path: "user",
+  path: "",
   middlewares: [auth],
   func: (req, res) => { res.send("OK") },
   method: GET,
   childs: [
-
+    {
+      path: ":userid",
+      func: (req, res) => { res.send(req.params.userid) },
+      method: GET
+    }
   ]
 })
 

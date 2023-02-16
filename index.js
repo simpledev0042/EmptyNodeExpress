@@ -24,7 +24,7 @@ app.use(cookieParser());
 const { UserController, SocketController } = require('./app/controllers');
 
 const { route } = require("./app/routes");
-route.use(app);
+route.use(app, "/user");
 
 mongoose.connect(process.env.MONGO_DATABASE_URL, (err) => {
     const dbState = [{
